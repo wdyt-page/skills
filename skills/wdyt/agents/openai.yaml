@@ -1,0 +1,4 @@
+interface:
+  display_name: "WDYT"
+  short_description: "Route work into the right WDYT workflow"
+  default_prompt: "Use $wdyt to turn this work into a shareable WDYT collaboration."

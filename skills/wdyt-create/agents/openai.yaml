@@ -1,0 +1,4 @@
+interface:
+  display_name: "WDYT Create"
+  short_description: "Create polished shareable HTML artifacts"
+  default_prompt: "Use $wdyt-create to make and share a polished artifact for this work."

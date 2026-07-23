@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="wdyt-template" content="markdown-working-document">
+  <meta name="wdyt-template-version" content="2026.07.22.2">
+  <title>Strategy working document — Signal 2026</title>
+  <script src="/vendor/v1/tailwind.js"></script>
+  <script src="/vendor/v1/marked.js"></script>
+  <script src="/vendor/v1/dompurify.js"></script>
+  <style>
+    :root { color-scheme: light; }
+    body { background: #f4f1eb; }
+    .paper-shadow { box-shadow: 0 24px 80px rgba(33, 28, 22, .12); }
+    .prose { color: #322f2b; font-size: 1rem; line-height: 1.75; }
+    .prose h1 { color: #181714; font-size: clamp(2rem, 5vw, 3.4rem); letter-spacing: -.045em; line-height: 1.02; margin: 0 0 1.4rem; }
+    .prose h2 { color: #181714; font-size: 1.45rem; letter-spacing: -.025em; margin: 2rem 0 .65rem; }
+    .prose h3 { color: #181714; font-size: 1.1rem; margin: 1.5rem 0 .45rem; }
+    .prose p, .prose ul, .prose ol, .prose blockquote { margin: 0 0 1rem; }
+    .prose ul, .prose ol { padding-left: 1.4rem; }
+    .prose ul { list-style: disc; } .prose ol { list-style: decimal; }
+    .prose blockquote { border-left: 3px solid #f06d4f; color: #675f57; padding-left: 1rem; }
+    .prose code { background: #f0ece5; border-radius: .35rem; font-size: .88em; padding: .15rem .35rem; }
+    .prose pre { background: #24211e; border-radius: .8rem; color: #f8f4ed; overflow: auto; padding: 1rem; }
+    .prose pre code { background: transparent; padding: 0; }
+    .prose a { color: #c6462d; text-decoration: underline; text-underline-offset: 3px; }
+    .prose table { border-collapse: collapse; margin: 1rem 0; width: 100%; }
+    .prose th, .prose td { border-bottom: 1px solid #ded7ce; padding: .55rem; text-align: left; }
+    .prose input[type="checkbox"] { margin-right: .5rem; }
+    @media (prefers-reduced-motion: no-preference) {
+      .mode-panel { transition: opacity .18s ease; }
+      .prose > * { animation: document-arrive .5s cubic-bezier(.2,.72,.2,1) both; }
+      .prose > *:nth-child(2) { animation-delay: .06s; }.prose > *:nth-child(3) { animation-delay: .12s; }.prose > *:nth-child(4) { animation-delay: .18s; }.prose > *:nth-child(5) { animation-delay: .24s; }.prose > *:nth-child(n+6) { animation-delay: .3s; }
+      @keyframes document-arrive { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+    }
+  </style>
+</head>
+<body class="min-h-screen font-sans text-stone-900 antialiased">
+  <main class="mx-auto max-w-[1500px] px-4 py-5 sm:px-6 sm:py-8 lg:px-10">
+    <header class="mb-5 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+      <div>
+        <p class="mb-1 text-xs font-semibold uppercase tracking-[.22em] text-orange-700">Strategy working document · decision ready</p>
+        <h1 class="text-2xl font-semibold tracking-tight sm:text-3xl">A roadmap the whole team can challenge.</h1>
+      </div>
+      <div class="flex items-center gap-2" aria-label="Document view">
+        <button type="button" data-view="split" class="view-button rounded-full px-4 py-2 text-sm font-medium text-stone-600 hover:bg-white">Split</button>
+        <button type="button" data-view="write" class="view-button rounded-full px-4 py-2 text-sm font-medium text-stone-600 hover:bg-white">Write</button>
+        <button type="button" data-view="preview" class="view-button rounded-full bg-stone-900 px-4 py-2 text-sm font-medium text-white">Preview</button>
+      </div>
+    </header>
+
+    <section class="paper-shadow overflow-hidden rounded-2xl border border-stone-200 bg-white">
+      <div class="flex flex-wrap items-center gap-1 border-b border-stone-200 bg-stone-50 px-3 py-2" aria-label="Markdown formatting">
+        <button type="button" data-action="heading" class="rounded-lg px-3 py-1.5 text-sm font-semibold hover:bg-stone-200" aria-label="Insert heading">H2</button>
+        <button type="button" data-action="bold" class="rounded-lg px-3 py-1.5 text-sm font-bold hover:bg-stone-200" aria-label="Bold selected text">B</button>
+        <button type="button" data-action="list" class="rounded-lg px-3 py-1.5 text-sm hover:bg-stone-200" aria-label="Insert list">• List</button>
+        <button type="button" data-action="task" class="rounded-lg px-3 py-1.5 text-sm hover:bg-stone-200" aria-label="Insert task">☐ Task</button>
+        <button type="button" data-action="quote" class="rounded-lg px-3 py-1.5 text-sm hover:bg-stone-200" aria-label="Insert quote">“ Quote</button>
+        <div class="ml-auto flex items-center gap-3 px-2 text-xs text-stone-500"><span id="word-count">0 words</span><span>Saved by WDYT</span></div>
+      </div>
+
+      <div id="workspace" class="grid min-h-[680px] grid-cols-1 lg:grid-cols-2">
+        <section id="write-panel" class="mode-panel min-w-0 border-b border-stone-200 lg:border-b-0 lg:border-r" aria-label="Markdown editor">
+          <label for="markdown-source" class="sr-only">Markdown source</label>
+          <textarea id="markdown-source" data-wdyt-field="markdown-source" spellcheck="true" class="min-h-[680px] w-full resize-none bg-stone-950 p-6 font-mono text-[15px] leading-7 text-stone-100 outline-none sm:p-9"># Signal 2026: from useful tool to team habit
+
+**Decision requested:** Commit the next two quarters to making the shared handoff—not feature breadth—the center of the product.
+
+## The strategic choice
+
+Signal wins when a person turns unfinished thinking into something their team can understand, challenge, and improve without rebuilding the context. We will optimize for that repeated collaboration loop before expanding into more isolated creation tools.
+
+> Our advantage is not producing another artifact. It is keeping the artifact, the human judgment, and the next agent revision together.
+
+## What we believe
+
+1. The first version will increasingly be created by an agent.
+2. Trust is built when teammates can respond to the actual work—not a description of it.
+3. A stable shared link is more valuable than another exported file once iteration begins.
+
+## Roadmap
+
+| Horizon | Product move | Evidence we need |
+| --- | --- | --- |
+| **Now · Q3** | Make review effortless: precise comments, drawings, and clean agent handoff | 60% of shared artifacts receive a second version |
+| **Next · Q4** | Make repeat work compound: ownership, history, and reusable team patterns | Teams return to the same workspace weekly |
+| **Later · 2027** | Add permissions and deeper integrations only where active teams pull us | Paid demand appears before complexity |
+
+## Bets we are deliberately not making yet
+
+- A general-purpose project-management layer
+- Real-time cursor presence before async review is excellent
+- Enterprise controls before small teams form a repeat habit
+
+## Measures that keep us honest
+
+| Signal | Current | Q4 threshold |
+| --- | ---: | ---: |
+| Shared artifacts reviewed | 31% | 55% |
+| Reviews reaching version two | 18% | 40% |
+| Median time to actionable feedback | 19 hours | under 6 hours |
+
+## Open decisions
+
+- [ ] Which artifact types create the strongest second-session return?
+- [ ] When should the agent proactively suggest a shared WDYT artifact?
+- [ ] What is the smallest ownership model that makes history trustworthy?
+
+## Next conversation
+
+Comment directly on the roadmap row or assumption you would change. The next version should make the disagreement visible rather than smoothing it away.</textarea>
+        </section>
+        <section id="preview-panel" class="mode-panel min-w-0 bg-white px-6 py-8 sm:px-10 sm:py-12" aria-label="Rendered document preview">
+          <article id="preview" class="prose mx-auto max-w-3xl"></article>
+        </section>
+      </div>
+    </section>
+    <p class="mt-4 text-center text-xs text-stone-500">Markdown is stored as one version-scoped field. Marked renders it; DOMPurify sanitizes the result.</p>
+  </main>
+
+  <script>
+    (() => {
+      const source = document.querySelector('#markdown-source');
+      const preview = document.querySelector('#preview');
+      const workspace = document.querySelector('#workspace');
+      const writePanel = document.querySelector('#write-panel');
+      const previewPanel = document.querySelector('#preview-panel');
+      const wordCount = document.querySelector('#word-count');
+      const viewButtons = [...document.querySelectorAll('.view-button')];
+
+      function render() {
+        const unsafe = marked.parse(source.value, { gfm: true, breaks: true });
+        preview.innerHTML = DOMPurify.sanitize(unsafe);
+        const words = source.value.trim().match(/\b[\w’'-]+\b/g)?.length || 0;
+        wordCount.textContent = `${words} word${words === 1 ? '' : 's'}`;
+      }
+
+      function setView(view) {
+        const split = view === 'split';
+        workspace.className = `grid min-h-[680px] grid-cols-1 ${split ? 'lg:grid-cols-2' : ''}`;
+        writePanel.hidden = view === 'preview';
+        previewPanel.hidden = view === 'write';
+        writePanel.className = `mode-panel min-w-0 ${split ? 'border-b border-stone-200 lg:border-b-0 lg:border-r' : ''}`;
+        viewButtons.forEach((button) => {
+          const active = button.dataset.view === view;
+          button.className = `view-button rounded-full px-4 py-2 text-sm font-medium ${active ? 'bg-stone-900 text-white' : 'text-stone-600 hover:bg-white'}`;
+          button.setAttribute('aria-pressed', String(active));
+        });
+      }
+
+      function insert(action) {
+        const recipes = {
+          heading: ['\n## ', 'Section title'],
+          bold: ['**', 'important words', '**'],
+          list: ['\n- ', 'List item'],
+          task: ['\n- [ ] ', 'Action to complete'],
+          quote: ['\n> ', 'A useful observation'],
+        };
+        const recipe = recipes[action];
+        if (!recipe) return;
+        const start = source.selectionStart;
+        const end = source.selectionEnd;
+        const selected = source.value.slice(start, end) || recipe[1];
+        const before = recipe[0];
+        const after = recipe[2] || '';
+        source.setRangeText(before + selected + after, start, end, 'end');
+        source.focus();
+        source.dispatchEvent(new Event('input', { bubbles: true }));
+      }
+
+      source.addEventListener('input', render);
+      document.addEventListener('wdyt:state-applied', render);
+      document.querySelectorAll('[data-action]').forEach((button) => button.addEventListener('click', () => insert(button.dataset.action)));
+      viewButtons.forEach((button) => button.addEventListener('click', () => setView(button.dataset.view)));
+      setView('preview');
+      render();
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "name": "wdyt",
+  "interface": {
+    "displayName": "WDYT"
+  },
+  "plugins": [
+    {
+      "name": "wdyt-skills",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/wdyt-page/skills.git"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "NONE"
+      },
+      "category": "Coding"
+    }
+  ]
+}

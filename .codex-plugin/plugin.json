@@ -1,0 +1,31 @@
+{
+  "name": "wdyt-skills",
+  "version": "0.1.0",
+  "description": "Official WDYT skills for AI agents.",
+  "author": {
+    "name": "WDYT",
+    "url": "https://wdyt.page"
+  },
+  "homepage": "https://wdyt.page",
+  "repository": "https://github.com/wdyt-page/skills",
+  "license": "MIT",
+  "keywords": ["wdyt", "collaboration", "html", "review", "agents"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "WDYT",
+    "shortDescription": "Create and review living artifacts with people and agents",
+    "longDescription": "Official WDYT skills for creating polished HTML artifacts, running visual review loops, reviewing live applications, and operating WDYT through a deterministic agent-friendly CLI.",
+    "developerName": "WDYT",
+    "category": "Coding",
+    "capabilities": ["Read", "Write"],
+    "websiteURL": "https://wdyt.page",
+    "defaultPrompt": [
+      "Turn this work into a shareable WDYT artifact",
+      "Apply the feedback from this WDYT review",
+      "Start a visual review for my local app"
+    ],
+    "brandColor": "#FF3040",
+    "composerIcon": "./assets/wdyt-logo.svg",
+    "logo": "./assets/wdyt-logo.svg"
+  }
+}

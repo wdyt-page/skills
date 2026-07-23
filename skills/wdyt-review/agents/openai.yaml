@@ -1,0 +1,4 @@
+interface:
+  display_name: "WDYT Review"
+  short_description: "Apply visual feedback and publish revisions"
+  default_prompt: "Use $wdyt-review to read this WDYT feedback and publish the next revision."

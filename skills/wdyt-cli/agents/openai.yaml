@@ -1,0 +1,4 @@
+interface:
+  display_name: "WDYT CLI"
+  short_description: "Operate WDYT reliably from an agent shell"
+  default_prompt: "Use $wdyt-cli to diagnose and operate this WDYT workflow."

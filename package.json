@@ -1,0 +1,15 @@
+{
+  "name": "wdyt-agent-skills",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Official WDYT skills for AI agents",
+  "type": "module",
+  "scripts": {
+    "validate": "node scripts/validate.mjs",
+    "test": "node scripts/test-cli.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}
