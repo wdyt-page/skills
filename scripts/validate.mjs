@@ -8,7 +8,7 @@ import { spawnSync } from "node:child_process";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const skillRoot = path.join(root, "skills");
-const expected = new Set(["wdyt", "wdyt-create", "wdyt-review", "wdyt-live-review", "wdyt-cli"]);
+const expected = new Set(["wdyt", "wdyt-create", "wdyt-review", "wdyt-collaborate", "wdyt-access", "wdyt-cli"]);
 
 const entries = await readdir(skillRoot, { withFileTypes: true });
 const directories = entries.filter((entry) => entry.isDirectory()).map((entry) => entry.name);

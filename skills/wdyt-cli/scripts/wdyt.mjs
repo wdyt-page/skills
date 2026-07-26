@@ -3,7 +3,7 @@
 import { readFile, writeFile } from "node:fs/promises";
 
 const VERSION = "0.1.0";
-const DEFAULT_ORIGIN = "https://wdyt.page";
+const DEFAULT_ORIGIN = "https://www.wdyt.page";
 const MAX_HTML_BYTES = 4 * 1024 * 1024;
 
 class UsageError extends Error {}

@@ -16,7 +16,7 @@ Read [references/artifact-patterns.md](references/artifact-patterns.md) when cho
 - `assets/sales-deck.html`
 - `assets/product-walkthrough.html`
 
-For the full catalog, read `https://wdyt.page/html-templates/index.md`. Use a template as a starting point, not as a visual uniform. Fit the hierarchy, interaction, and style to the actual work.
+For the full catalog, read `https://www.wdyt.page/html-templates/index.md`. Use a template as a starting point, not as a visual uniform. Fit the hierarchy, interaction, and style to the actual work.
 
 ## Build one complete file
 
@@ -46,7 +46,7 @@ node ../wdyt-cli/scripts/wdyt.mjs create artifact.html --json
 Otherwise:
 
 ```bash
-curl -fsS -X POST https://wdyt.page/api/reviews \
+curl -fsS -X POST https://www.wdyt.page/api/reviews \
   -H "Content-Type: text/html" \
   --data-binary @artifact.html
 ```

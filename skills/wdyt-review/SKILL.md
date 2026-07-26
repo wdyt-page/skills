@@ -18,7 +18,7 @@ node ../wdyt-cli/scripts/wdyt.mjs context "<review-url>" --json
 For `/r/<review-id>` links, the direct context is:
 
 ```text
-https://wdyt.page/api/reviews/<review-id>/context.md
+https://www.wdyt.page/api/reviews/<review-id>/context.md
 ```
 
 The context provides the current version ID, comment threads, drawings, clean editable HTML URL, annotated reference URL, and exact upload URL.

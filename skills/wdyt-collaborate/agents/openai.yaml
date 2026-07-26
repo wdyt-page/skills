@@ -1,0 +1,4 @@
+interface:
+  display_name: "WDYT Collaborate"
+  short_description: "Collaborate on artifacts and running applications"
+  default_prompt: "Use $wdyt-collaborate to collect or respond to precise human feedback."

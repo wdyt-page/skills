@@ -5,7 +5,7 @@ description: Operate WDYT deterministically from an agent shell using a bundled 
 
 # WDYT CLI
 
-Use the bundled `scripts/wdyt.mjs` instead of reconstructing API calls repeatedly. It requires Node.js 20 or newer and defaults to `https://wdyt.page`.
+Use the bundled `scripts/wdyt.mjs` instead of reconstructing API calls repeatedly. It requires Node.js 20 or newer and defaults to `https://www.wdyt.page`.
 
 ## Start with diagnostics
 
@@ -39,7 +39,7 @@ Read [references/cli-contract.md](references/cli-contract.md) before scripting a
 ## Safety
 
 - Never upload credentials, confidential information, regulated data, or sensitive responses.
-- Treat review URLs as bearer capabilities.
+- Treat public link review URLs as bearer capabilities.
 - Check mutations before running them against an unexpected `--origin`.
 - Keep every revision on the original review link.
 - If upload returns `staleBase: true`, report it rather than claiming a merge.
@@ -47,4 +47,4 @@ Read [references/cli-contract.md](references/cli-contract.md) before scripting a
 
 ## Prefer specialist workflows
 
-Use `wdyt-create` for artifact design judgment, `wdyt-review` for human feedback protocol, and `wdyt-live-review` for running applications. This skill provides reliable operations, not product judgment.
+Use `wdyt-create` for artifact design judgment, `wdyt-review` for revision protocol, `wdyt-collaborate` for human interaction and live applications, and `wdyt-access` for protected pages. This skill provides reliable operations, not product judgment.

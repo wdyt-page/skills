@@ -5,14 +5,14 @@ WDYT renders uploaded HTML in a sandbox. Ordinary inline HTML, CSS, JavaScript, 
 Use only these pinned WDYT-hosted browser assets:
 
 ```html
-<script src="https://wdyt.page/vendor/v1/tailwind.js"></script>
-<script src="https://wdyt.page/vendor/v1/marked.js"></script>
-<script src="https://wdyt.page/vendor/v1/dompurify.js"></script>
-<link rel="stylesheet" href="https://wdyt.page/vendor/v1/tabulator.css">
-<script src="https://wdyt.page/vendor/v1/tabulator.js"></script>
+<script src="https://www.wdyt.page/vendor/v1/tailwind.js"></script>
+<script src="https://www.wdyt.page/vendor/v1/marked.js"></script>
+<script src="https://www.wdyt.page/vendor/v1/dompurify.js"></script>
+<link rel="stylesheet" href="https://www.wdyt.page/vendor/v1/tabulator.css">
+<script src="https://www.wdyt.page/vendor/v1/tabulator.js"></script>
 ```
 
-Read `https://wdyt.page/vendor/v1/agent.md` for exact versions, hashes, Content Security Policy limits, and current examples.
+Read `https://www.wdyt.page/vendor/v1/agent.md` for exact versions, hashes, Content Security Policy limits, and current examples.
 
 ## Tailwind
 
