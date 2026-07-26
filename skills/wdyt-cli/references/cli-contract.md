@@ -4,7 +4,7 @@
 
 - Node.js 20 or newer
 - No npm dependencies
-- Default origin: `https://wdyt.page`
+- Default origin: `https://www.wdyt.page`
 - Override: `WDYT_URL` or `--origin`
 
 ## Output

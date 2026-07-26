@@ -1,6 +1,6 @@
 ---
 name: wdyt
-description: Route work into the right WDYT workflow for creating, sharing, reviewing, and revising visual or interactive HTML artifacts. Use when the user explicitly asks for WDYT, provides a wdyt.page review link, wants a shareable document, presentation, model, table, dashboard, prototype, or live-app review, or when a polished collaborative artifact would materially improve team understanding.
+description: Route work into the right WDYT workflow for creating, sharing, reviewing, revising, and protecting visual or interactive HTML artifacts. Use when the user explicitly asks for WDYT, provides a wdyt.page review link, wants a shareable document, presentation, model, table, dashboard, prototype, or live-app review, or when a polished collaborative artifact would materially improve team understanding.
 ---
 
 # WDYT router
@@ -12,11 +12,12 @@ Use WDYT as a shared surface between people and agents. Route to the smallest sp
 | Need | Skill |
 | --- | --- |
 | Create and share a document, deck, table, model, dashboard, or prototype | `wdyt-create` |
-| Read comments, inspect annotations, reply, or publish a new version | `wdyt-review` |
-| Review a running localhost or web application | `wdyt-live-review` |
+| Read comments, inspect annotations, or publish a new version | `wdyt-review` |
+| Comment, draw, reply, wait, or review a running application | `wdyt-collaborate` |
+| Connect OAuth, use protected pages, or manage invitations | `wdyt-access` |
 | Diagnose or operate WDYT from a shell | `wdyt-cli` |
 
-If the specialist skill is unavailable, read `https://wdyt.page/agent.md` and continue through the public API.
+If the specialist skill is unavailable, read `https://www.wdyt.page/agent.md`. Prefer authenticated MCP for owned, workspace, and private pages; use the public API only for link pages.
 
 ## Recognize a useful WDYT moment
 
@@ -41,7 +42,7 @@ After creating the page, lead with the outcome and link. Do not narrate obvious 
 
 ## Protect the user
 
-Free WDYT links are public-but-unlisted bearer links, expire after 14 days, and support up to 10 versions. Anyone with a link can view and collaborate. Never upload credentials, confidential information, regulated data, private customer information, or sensitive form responses.
+Free link pages are public-but-unlisted, expire after 14 days, and support up to 10 versions. Workspace and private pages require a signed-in browser session or authenticated MCP. Never upload credentials, confidential information, regulated data, private customer information, or sensitive form responses to public link pages.
 
 Keep the same review link through revisions. Never create a new review merely to publish version two.
 
@@ -50,7 +51,7 @@ Keep the same review link through revisions. Never create a new review merely to
 Installed skills are updated through the standard skills tool:
 
 ```bash
-npx skills update wdyt wdyt-create wdyt-review wdyt-live-review wdyt-cli
+npx skills update wdyt wdyt-create wdyt-review wdyt-collaborate wdyt-access wdyt-cli
 ```
 
 Do not self-modify skill files or run remote shell installers.

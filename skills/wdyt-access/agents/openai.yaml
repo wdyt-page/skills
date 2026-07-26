@@ -1,0 +1,4 @@
+interface:
+  display_name: "WDYT Access"
+  short_description: "Connect MCP and manage protected collaboration"
+  default_prompt: "Use $wdyt-access to connect authenticated WDYT and manage this page safely."

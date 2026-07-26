@@ -1,4 +1,0 @@
-interface:
-  display_name: "WDYT Live Review"
-  short_description: "Review a running local web application"
-  default_prompt: "Use $wdyt-live-review to open a review loop for this running app."

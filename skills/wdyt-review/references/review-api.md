@@ -4,7 +4,7 @@ The bundled CLI is preferred. Use these payloads when direct API access is neces
 
 ## Resolve a review
 
-For `https://wdyt.page/r/<review-id>`:
+For `https://www.wdyt.page/r/<review-id>`:
 
 ```text
 GET /api/reviews/<review-id>/context.json
