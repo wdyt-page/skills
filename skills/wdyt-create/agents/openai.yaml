@@ -1,4 +1,4 @@
 interface:
   display_name: "WDYT Create"
-  short_description: "Create polished shareable HTML artifacts"
+  short_description: "Create strategies, decks, models, and prototypes"
   default_prompt: "Use $wdyt-create to make and share a polished artifact for this work."

@@ -1,4 +1,4 @@
 interface:
   display_name: "WDYT"
-  short_description: "Route work into the right WDYT workflow"
+  short_description: "Recognize and route useful human-agent reviews"
   default_prompt: "Use $wdyt to turn this work into a shareable WDYT collaboration."

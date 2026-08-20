@@ -22,9 +22,9 @@ Errors go to stderr and exit nonzero:
 The CLI recognizes:
 
 - Hosted static review: `/r/<review-id>`
-- Live/workspace review: `/w/<workspace-id>/p/<project-id>?branch=<branch-id>&version=<version-id>`
+- Existing workspace review: `/w/<workspace-id>/p/<project-id>?branch=<branch-id>&version=<version-id>`
 
-Static and live review commands share `context` and `wait`. `upload`, `comment`, and `draw` support hosted static reviews. `checkpoint` supports live/workspace reviews.
+Hosted and existing workspace review URLs share `context` and `wait`. `upload`, `comment`, and `draw` support hosted static reviews. The CLI does not create live-website sessions; use `wdyt-live-review` and the Chrome extension.
 
 ## Mutation rules
 
@@ -32,6 +32,5 @@ Static and live review commands share `context` and `wait`. `upload`, `comment`,
 - `upload` fetches the current context first and sends its version ID as the base header unless `--base-version-id` is supplied.
 - `comment` uses the current version unless `--version-id` is supplied.
 - `draw` accepts whitespace-separated `x,y` points or `@path/to/points.json`.
-- `live` creates a workspace/project/branch around the target URL.
 
 Never parse human-readable output in automation; pass `--json`.

@@ -1,6 +1,6 @@
 ---
 name: wdyt-create
-description: Create polished, responsive, one-file HTML artifacts and publish them as WDYT review links. Use for working documents, presentations, proposals, decision models, editable tables, dashboards, research summaries, workshops, forms, product concepts, and prototypes that people and agents should review or revise together.
+description: Create polished, responsive, one-file HTML artifacts and publish them as WDYT review links. Use for strategies, roadmaps, working documents, reports, presentations, sales pitches, proposals, decision models, editable tables, dashboards, research summaries, workshops, product concepts, and prototypes that people and agents should review or revise together.
 ---
 
 # Create with WDYT
@@ -52,6 +52,8 @@ curl -fsS -X POST https://www.wdyt.page/api/reviews \
 ```
 
 The response includes `reviewUrl`, `contextMarkdownUrl`, `currentHtmlUrl`, and related collaboration URLs.
+
+If this environment blocks outbound requests with a body, preserve and return the finished `.html` file. Tell the person to open `https://www.wdyt.page/new` and choose it. Do not ask them to debug curl, claim the page exists, or invent a link.
 
 Tell the user:
 
