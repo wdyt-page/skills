@@ -1,4 +1,4 @@
 interface:
-  display_name: "WDYT Review"
+  display_name: "wdyt Review"
   short_description: "Apply feedback and update the same living link"
-  default_prompt: "Use $wdyt-review to read this WDYT feedback and publish the next revision."
+  default_prompt: "Use $wdyt-review to read this wdyt feedback and publish the next revision."

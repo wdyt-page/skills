@@ -2,7 +2,7 @@
 
 import { readFile, writeFile } from "node:fs/promises";
 
-const VERSION = "0.3.0";
+const VERSION = "0.3.1";
 const DEFAULT_ORIGIN = "https://www.wdyt.page";
 const MAX_HTML_BYTES = 4 * 1024 * 1024;
 
@@ -49,7 +49,7 @@ async function doctor() {
   }));
   const result = { ok: checks.every((check) => check.ok), origin, version: VERSION, node: process.version, checks };
   emit(result, [
-    result.ok ? `WDYT is reachable at ${origin}` : `WDYT checks failed at ${origin}`,
+    result.ok ? `wdyt is reachable at ${origin}` : `wdyt checks failed at ${origin}`,
     ...checks.map((check) => `${check.ok ? "✓" : "✗"} ${check.name}${check.status ? ` (${check.status})` : ""}`),
   ].join("\n"));
   if (!result.ok) process.exitCode = 1;
@@ -220,7 +220,7 @@ function resolveReview(value) {
   if (/^[A-Za-z0-9_-]+$/.test(value)) {
     return { type: "hosted", id: value, baseUrl: origin, reviewUrl: `${origin}/r/${value}`, version: "" };
   }
-  throw new UsageError(`Not a WDYT review URL: ${value}`);
+  throw new UsageError(`Not a wdyt review URL: ${value}`);
 }
 
 async function readHtml(file) {
@@ -322,7 +322,7 @@ function sleep(milliseconds) {
 }
 
 function showHelp() {
-  const help = `WDYT agent CLI ${VERSION}
+  const help = `wdyt agent CLI ${VERSION}
 
 Usage:
   wdyt doctor [--origin URL] [--json]

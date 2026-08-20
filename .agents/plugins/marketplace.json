@@ -1,7 +1,7 @@
 {
   "name": "wdyt",
   "interface": {
-    "displayName": "WDYT"
+    "displayName": "wdyt"
   },
   "plugins": [
     {

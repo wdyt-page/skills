@@ -43,4 +43,4 @@ Make the next action unmistakable. Prefer a few durable fields over a complex fo
 - Make keyboard focus visible.
 - Check narrow layouts; never rely on horizontal scrolling for primary content.
 - Keep instructions near the action that needs them.
-- Let WDYT comments handle review; do not recreate a second comment system inside the artifact.
+- Let wdyt comments handle review; do not recreate a second comment system inside the artifact.

@@ -1,4 +1,4 @@
 interface:
-  display_name: "WDYT Live Review"
+  display_name: "wdyt Live Review"
   short_description: "Collect precise feedback on a real website"
   default_prompt: "Use $wdyt-live-review to collect and act on feedback from this real website."

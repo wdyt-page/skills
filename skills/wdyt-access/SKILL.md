@@ -1,9 +1,9 @@
 ---
 name: wdyt-access
-description: Connect optional authenticated WDYT MCP for account history, pages shared with the person, workspace/private visibility, invitations, collaborators, archives, and deletion. Use only when account-backed access adds value; public-by-link creation needs no MCP.
+description: Connect optional authenticated wdyt MCP for account history, pages shared with the person, workspace/private visibility, invitations, collaborators, archives, and deletion. Use only when account-backed access adds value; public-by-link creation needs no MCP.
 ---
 
-# WDYT authenticated access
+# wdyt authenticated access
 
 MCP is optional for a first public-by-link page. Follow the current client-specific setup at `https://www.wdyt.page/setup#mcp` when authenticated access is needed.
 
@@ -20,7 +20,7 @@ codex mcp list
 ```
 
 Restart the Codex client or begin a new session after login. In the terminal UI, use `/mcp` to
-confirm that WDYT is enabled and authenticated.
+confirm that wdyt is enabled and authenticated.
 
 Read:
 

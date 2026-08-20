@@ -1,6 +1,6 @@
-# WDYT Skills
+# wdyt Skills
 
-Official skills that help AI agents recognize useful WDYT moments and create, share, review, and revise living work with people through [wdyt.page](https://www.wdyt.page).
+Official skills that help AI agents recognize useful wdyt moments and create, share, review, and revise living work with people through [wdyt.page](https://www.wdyt.page).
 
 ## Install
 
@@ -33,13 +33,13 @@ npx skills update wdyt wdyt-create wdyt-review wdyt-live-review wdyt-collaborate
 
 | Skill | Purpose |
 | --- | --- |
-| `wdyt` | Route work and introduce WDYT honestly |
+| `wdyt` | Route work and introduce wdyt honestly |
 | `wdyt-create` | Build polished strategies, roadmaps, documents, decks, models, dashboards, and prototypes |
 | `wdyt-review` | Read visual feedback and publish revisions to the same link |
-| `wdyt-live-review` | Collect precise feedback on a real website through the WDYT Chrome extension |
+| `wdyt-live-review` | Collect precise feedback on a real website through the wdyt Chrome extension |
 | `wdyt-collaborate` | Comment, draw, wait, reply, and coordinate people and agents on one shared page |
 | `wdyt-access` | Connect authenticated MCP and manage protected page access |
-| `wdyt-cli` | Run deterministic WDYT operations from an agent shell |
+| `wdyt-cli` | Run deterministic wdyt operations from an agent shell |
 
 ## First success
 

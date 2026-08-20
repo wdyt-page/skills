@@ -90,7 +90,7 @@ async function main() {
   if (failures.length) {
     throw new Error(`${failures.length} checks failed:\n- ${failures.join("\n- ")}`);
   }
-  console.log(`PASS: WDYT ${skillManifest.version}, runtime, skills, and OAuth discovery are healthy at ${origin}.`);
+  console.log(`PASS: wdyt ${skillManifest.version}, runtime, skills, and OAuth discovery are healthy at ${origin}.`);
 }
 
 main().catch((error) => {

@@ -1,8 +1,8 @@
 # Locked browser runtime
 
-WDYT renders uploaded HTML in a sandbox. Ordinary inline HTML, CSS, JavaScript, SVG, and non-sensitive sample data work without dependencies.
+wdyt renders uploaded HTML in a sandbox. Ordinary inline HTML, CSS, JavaScript, SVG, and non-sensitive sample data work without dependencies.
 
-Use only these pinned WDYT-hosted browser assets:
+Use only these pinned wdyt-hosted browser assets:
 
 ```html
 <script src="https://www.wdyt.page/vendor/v1/tailwind.js"></script>
@@ -41,7 +41,7 @@ Add a stable unique key to ordinary controls:
 <textarea data-wdyt-field="executive-summary">Initial text</textarea>
 ```
 
-WDYT persists values per version. Updates are last-write-wins per field; this is not realtime document merging.
+wdyt persists values per version. Updates are last-write-wins per field; this is not realtime document merging.
 
 For a rich widget, serialize its state into one hidden marked textarea and dispatch a bubbling `input` event:
 
@@ -54,4 +54,4 @@ Listen for `wdyt:state-applied` before recalculating derived UI after persisted 
 
 ## Security boundaries
 
-Do not use arbitrary CDNs, remote APIs, iframes, workers, WebSockets, analytics, cookies, local storage, form actions, or secrets. The sandbox intentionally blocks network connections beyond WDYT's pinned assets. Never design an artifact that depends on a bypass.
+Do not use arbitrary CDNs, remote APIs, iframes, workers, WebSockets, analytics, cookies, local storage, form actions, or secrets. The sandbox intentionally blocks network connections beyond wdyt's pinned assets. Never design an artifact that depends on a bypass.

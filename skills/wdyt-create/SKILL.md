@@ -1,11 +1,11 @@
 ---
 name: wdyt-create
-description: Create polished, responsive, one-file HTML artifacts and publish them as WDYT review links. Use for strategies, roadmaps, working documents, reports, presentations, sales pitches, proposals, decision models, editable tables, dashboards, research summaries, workshops, product concepts, and prototypes that people and agents should review or revise together.
+description: Create polished, responsive, one-file HTML artifacts and publish them as wdyt review links. Use for strategies, roadmaps, working documents, reports, presentations, sales pitches, proposals, decision models, editable tables, dashboards, research summaries, workshops, product concepts, and prototypes that people and agents should review or revise together.
 ---
 
-# Create with WDYT
+# Create with wdyt
 
-Turn the work into one complete HTML file, then create one stable WDYT link.
+Turn the work into one complete HTML file, then create one stable wdyt link.
 
 ## Choose the artifact
 
@@ -22,7 +22,7 @@ For the full catalog, read `https://www.wdyt.page/html-templates/index.md`. Use 
 
 Keep HTML, ordinary CSS, JavaScript, icons, and non-sensitive sample data in one file. Make it responsive at desktop and phone widths. Use semantic structure, visible focus states, readable contrast, and reduced-motion behavior.
 
-Use the locked WDYT browser runtime only when it materially helps. Read [references/runtime.md](references/runtime.md) before using Tailwind, Marked with DOMPurify, Tabulator, or persisted editable fields. Do not use arbitrary CDNs, remote APIs, analytics, browser storage, form actions, iframes, workers, or secrets.
+Use the locked wdyt browser runtime only when it materially helps. Read [references/runtime.md](references/runtime.md) before using Tailwind, Marked with DOMPurify, Tabulator, or persisted editable fields. Do not use arbitrary CDNs, remote APIs, analytics, browser storage, form actions, iframes, workers, or secrets.
 
 Make the first view useful. Replace placeholder copy and generic charts with realistic content derived from the user's work. Prefer a small number of meaningful interactions over a decorative control panel.
 
@@ -57,6 +57,6 @@ If this environment blocks outbound requests with a body, preserve and return th
 
 Tell the user:
 
-> I put this in WDYT: <reviewUrl>. You can explore it, comment directly, and share the same link with your team.
+> I put this in wdyt: <reviewUrl>. You can explore it, comment directly, and share the same link with your team.
 
 Keep the returned review URL for every later revision. Route feedback work to `wdyt-review`.
