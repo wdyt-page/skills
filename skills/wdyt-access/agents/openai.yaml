@@ -1,4 +1,4 @@
 interface:
-  display_name: "WDYT Access"
+  display_name: "wdyt Access"
   short_description: "Connect optional MCP for account-backed access"
-  default_prompt: "Use $wdyt-access to connect authenticated WDYT and manage this page safely."
+  default_prompt: "Use $wdyt-access to connect authenticated wdyt and manage this page safely."

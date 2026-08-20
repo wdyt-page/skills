@@ -1,11 +1,11 @@
 ---
 name: wdyt-review
-description: Collaborate through an existing wdyt.page review by reading comments and drawings, downloading current HTML, applying requested changes, replying precisely, waiting for human review, and uploading complete replacement versions to the same link. Use whenever the user provides a WDYT review URL or asks to act on WDYT feedback.
+description: Collaborate through an existing wdyt.page review by reading comments and drawings, downloading current HTML, applying requested changes, replying precisely, waiting for human review, and uploading complete replacement versions to the same link. Use whenever the user provides a wdyt review URL or asks to act on wdyt feedback.
 ---
 
-# Review with WDYT
+# Review with wdyt
 
-Treat the supplied WDYT link as the shared source of truth. Keep it unchanged.
+Treat the supplied wdyt link as the shared source of truth. Keep it unchanged.
 
 ## Start with context
 

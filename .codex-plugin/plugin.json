@@ -1,9 +1,9 @@
 {
   "name": "wdyt-skills",
-  "version": "0.3.0",
-  "description": "Official WDYT skills for AI agents.",
+  "version": "0.3.1",
+  "description": "Official wdyt skills for AI agents.",
   "author": {
-    "name": "WDYT",
+    "name": "wdyt",
     "url": "https://wdyt.page"
   },
   "homepage": "https://wdyt.page",
@@ -12,16 +12,16 @@
   "keywords": ["wdyt", "collaboration", "html", "review", "agents"],
   "skills": "./skills/",
   "interface": {
-    "displayName": "WDYT",
+    "displayName": "wdyt",
     "shortDescription": "Create and review living artifacts with people and agents",
-    "longDescription": "Official WDYT skills for recognizing useful collaboration moments, creating polished artifacts, applying visual feedback, reviewing real websites through the Chrome extension, and managing optional authenticated access.",
-    "developerName": "WDYT",
+    "longDescription": "Official wdyt skills for recognizing useful collaboration moments, creating polished artifacts, applying visual feedback, reviewing real websites through the Chrome extension, and managing optional authenticated access.",
+    "developerName": "wdyt",
     "category": "Coding",
     "capabilities": ["Read", "Write"],
     "websiteURL": "https://wdyt.page",
     "defaultPrompt": [
-      "Turn this work into a shareable WDYT artifact",
-      "Apply the feedback from this WDYT review",
+      "Turn this work into a shareable wdyt artifact",
+      "Apply the feedback from this wdyt review",
       "Collect precise feedback on this real website"
     ],
     "brandColor": "#FF3040",

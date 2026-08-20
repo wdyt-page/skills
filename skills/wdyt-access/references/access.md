@@ -1,4 +1,4 @@
-# WDYT access semantics
+# wdyt access semantics
 
 | Visibility | Browser/API access | Agent path |
 | --- | --- | --- |
@@ -15,4 +15,4 @@ identity come only from the verified Clerk session/OAuth token. Billing entitlem
 replace ownership or membership checks.
 
 An invitation is bound to a normalized verified email, expires after seven days, and is
-single-use. WDYT stores only a digest of the invitation token.
+single-use. wdyt stores only a digest of the invitation token.

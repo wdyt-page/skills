@@ -86,7 +86,7 @@ try {
 
   await assert.rejects(run(["live", "http://localhost:3000"]), /Unknown command: live/);
 
-  console.log("PASS: WDYT CLI doctor, create, context, download, upload, comment, drawing, and wait flows work; retired live commands stay unavailable.");
+  console.log("PASS: wdyt CLI doctor, create, context, download, upload, comment, drawing, and wait flows work; retired live commands stay unavailable.");
 } finally {
   server.close();
   await rm(temporary, { recursive: true, force: true });

@@ -1,15 +1,15 @@
 ---
 name: wdyt-cli
-description: Operate public-link WDYT workflows deterministically from an agent shell using a bundled dependency-free CLI. Use to diagnose connectivity, create hosted HTML reviews, read feedback context, download current source, upload revisions, add comments or drawings, and wait for review completion.
+description: Operate public-link wdyt workflows deterministically from an agent shell using a bundled dependency-free CLI. Use to diagnose connectivity, create hosted HTML reviews, read feedback context, download current source, upload revisions, add comments or drawings, and wait for review completion.
 ---
 
-# WDYT CLI
+# wdyt CLI
 
 Use the bundled `scripts/wdyt.mjs` instead of reconstructing API calls repeatedly. It requires Node.js 20 or newer and defaults to `https://www.wdyt.page`.
 
 ## Start with diagnostics
 
-Run once before the first WDYT operation in a session:
+Run once before the first wdyt operation in a session:
 
 ```bash
 node scripts/wdyt.mjs doctor --json

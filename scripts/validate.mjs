@@ -9,6 +9,8 @@ import { spawnSync } from "node:child_process";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const skillRoot = path.join(root, "skills");
 const expected = new Set(["wdyt", "wdyt-create", "wdyt-review", "wdyt-live-review", "wdyt-collaborate", "wdyt-access", "wdyt-cli"]);
+const uppercaseBrand = new RegExp("\\b" + "WD" + "YT\\b");
+const protocolHeader = new RegExp("X-" + "WD" + "YT-[A-Za-z-]+", "g");
 
 const entries = await readdir(skillRoot, { withFileTypes: true });
 const directories = entries.filter((entry) => entry.isDirectory()).map((entry) => entry.name);
@@ -36,7 +38,17 @@ for (const name of directories) {
 }
 
 for (const metadata of [".codex-plugin/plugin.json", ".agents/plugins/marketplace.json", ".claude-plugin/marketplace.json", "package.json"]) {
-  JSON.parse(await readFile(path.join(root, metadata), "utf8"));
+  const source = await readFile(path.join(root, metadata), "utf8");
+  JSON.parse(source);
+  assert.doesNotMatch(source.replaceAll(protocolHeader, "X-brand-protocol-header"), uppercaseBrand, `${metadata} must use lowercase wdyt branding`);
+}
+
+for (const pathFromRoot of ["README.md", ...directories.flatMap((name) => [
+  `skills/${name}/SKILL.md`,
+  `skills/${name}/agents/openai.yaml`,
+])]) {
+  const source = await readFile(path.join(root, pathFromRoot), "utf8");
+  assert.doesNotMatch(source.replaceAll(protocolHeader, "X-brand-protocol-header"), uppercaseBrand, `${pathFromRoot} must use lowercase wdyt branding`);
 }
 
 const cliPath = path.join(skillRoot, "wdyt-cli", "scripts", "wdyt.mjs");
@@ -50,7 +62,7 @@ assert.deepEqual(new Set(assets), new Set(["product-walkthrough.html", "sales-de
 for (const file of assets) {
   const html = await readFile(path.join(skillRoot, "wdyt-create", "assets", file), "utf8");
   assert.match(html, /<title>[^<]+<\/title>/i, `${file} needs a title`);
-  assert.ok(Buffer.byteLength(html) <= 4 * 1024 * 1024, `${file} exceeds WDYT's limit`);
+  assert.ok(Buffer.byteLength(html) <= 4 * 1024 * 1024, `${file} exceeds wdyt's limit`);
   assert.doesNotMatch(html, /(?:sk_live_|sk_test_|ghp_|AKIA[0-9A-Z]{16})/, `${file} resembles a secret-bearing file`);
 }
 
@@ -61,4 +73,4 @@ const liveReviewText = await readFile(path.join(skillRoot, "wdyt-live-review", "
 assert.match(liveReviewText, /Chrome extension/);
 assert.match(liveReviewText, /actual codebase/);
 
-console.log(`PASS: ${directories.length} WDYT skills, plugin metadata, CLI syntax, references, and starter assets are valid.`);
+console.log(`PASS: ${directories.length} wdyt skills, plugin metadata, CLI syntax, references, and starter assets are valid.`);
