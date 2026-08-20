@@ -8,7 +8,7 @@ import { spawnSync } from "node:child_process";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const skillRoot = path.join(root, "skills");
-const expected = new Set(["wdyt", "wdyt-create", "wdyt-review", "wdyt-collaborate", "wdyt-access", "wdyt-cli"]);
+const expected = new Set(["wdyt", "wdyt-create", "wdyt-review", "wdyt-live-review", "wdyt-collaborate", "wdyt-access", "wdyt-cli"]);
 
 const entries = await readdir(skillRoot, { withFileTypes: true });
 const directories = entries.filter((entry) => entry.isDirectory()).map((entry) => entry.name);
@@ -40,6 +40,8 @@ for (const metadata of [".codex-plugin/plugin.json", ".agents/plugins/marketplac
 }
 
 const cliPath = path.join(skillRoot, "wdyt-cli", "scripts", "wdyt.mjs");
+const cliText = await readFile(cliPath, "utf8");
+assert.doesNotMatch(cliText, /command === "(?:live|checkpoint)"/, "Retired live URL CLI commands must stay removed");
 const syntax = spawnSync(process.execPath, ["--check", cliPath], { encoding: "utf8" });
 assert.equal(syntax.status, 0, syntax.stderr || "CLI syntax check failed");
 
@@ -51,5 +53,12 @@ for (const file of assets) {
   assert.ok(Buffer.byteLength(html) <= 4 * 1024 * 1024, `${file} exceeds WDYT's limit`);
   assert.doesNotMatch(html, /(?:sk_live_|sk_test_|ghp_|AKIA[0-9A-Z]{16})/, `${file} resembles a secret-bearing file`);
 }
+
+const collaborationText = await readFile(path.join(skillRoot, "wdyt-collaborate", "SKILL.md"), "utf8");
+assert.doesNotMatch(collaborationText, /permits iframe rendering|wdyt\.mjs live|wdyt\.mjs checkpoint/, "Collaboration guidance must not restore the retired iframe workflow");
+
+const liveReviewText = await readFile(path.join(skillRoot, "wdyt-live-review", "SKILL.md"), "utf8");
+assert.match(liveReviewText, /Chrome extension/);
+assert.match(liveReviewText, /actual codebase/);
 
 console.log(`PASS: ${directories.length} WDYT skills, plugin metadata, CLI syntax, references, and starter assets are valid.`);

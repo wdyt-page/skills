@@ -1,6 +1,6 @@
 ---
 name: wdyt-cli
-description: Operate WDYT deterministically from an agent shell using a bundled dependency-free CLI. Use to diagnose connectivity, create hosted HTML reviews, read feedback context, download current source, upload revisions, add comments or drawings, wait for review completion, and create live-app reviews or checkpoints.
+description: Operate public-link WDYT workflows deterministically from an agent shell using a bundled dependency-free CLI. Use to diagnose connectivity, create hosted HTML reviews, read feedback context, download current source, upload revisions, add comments or drawings, and wait for review completion.
 ---
 
 # WDYT CLI
@@ -28,8 +28,6 @@ wdyt upload <review-url> <html-file>
 wdyt comment <review-url> --body TEXT [--x N --y N --author NAME]
 wdyt draw <review-url> --points "x,y x,y ..." [--color HEX --width N]
 wdyt wait <review-url> [--timeout SECONDS]
-wdyt live <target-url> [--project NAME --author NAME --width N]
-wdyt checkpoint <review-url> --url TARGET_URL [--label LABEL]
 ```
 
 Use `--json` for structured output. Non-TTY execution also defaults to JSON. Run `node scripts/wdyt.mjs help` for complete flags.
@@ -47,4 +45,4 @@ Read [references/cli-contract.md](references/cli-contract.md) before scripting a
 
 ## Prefer specialist workflows
 
-Use `wdyt-create` for artifact design judgment, `wdyt-review` for revision protocol, `wdyt-collaborate` for human interaction and live applications, and `wdyt-access` for protected pages. This skill provides reliable operations, not product judgment.
+Use `wdyt-create` for artifact design judgment, `wdyt-review` for revision protocol, `wdyt-live-review` for real websites, `wdyt-collaborate` for participant interaction, and `wdyt-access` for protected pages. This skill provides reliable public-link operations, not product judgment.

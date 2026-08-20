@@ -1,9 +1,11 @@
 ---
 name: wdyt-access
-description: Connect an agent to WDYT over Clerk-authenticated MCP and safely manage workspace/private visibility, invitations, collaborators, archives, and deletion.
+description: Connect optional authenticated WDYT MCP for account history, pages shared with the person, workspace/private visibility, invitations, collaborators, archives, and deletion. Use only when account-backed access adds value; public-by-link creation needs no MCP.
 ---
 
 # WDYT authenticated access
+
+MCP is optional for a first public-by-link page. Follow the current client-specific setup at `https://www.wdyt.page/setup#mcp` when authenticated access is needed.
 
 Connect the MCP client to `https://www.wdyt.page/mcp`. Let the human complete Clerk's browser
 consent and choose the workspace. Never request, accept, print, store, or forward an OAuth token

@@ -50,27 +50,6 @@ const server = createServer(async (request, response) => {
   }
   if (request.method === "POST" && url.pathname === "/api/reviews/test123/comments") return json({ comment: { id: "comment-1" } }, 201);
   if (request.method === "POST" && url.pathname === "/api/reviews/test123/drawings") return json({ drawing: { id: "drawing-1" } }, 201);
-  if (request.method === "POST" && url.pathname === "/api/workspaces") {
-    return json({
-      reviewUrl: `${baseUrl}/w/workspace-1/p/project-1?branch=branch-1&version=live-1`,
-      workspace: { id: "workspace-1" },
-      project: { id: "project-1" },
-      branch: { id: "branch-1" },
-      version: { id: "live-1", liveUrl: "http://localhost:3000" },
-    });
-  }
-  if (request.method === "GET" && url.pathname === "/api/workspaces/workspace-1/projects/project-1/branches/branch-1/agent-context") {
-    return json({
-      version: { id: "live-1", artboardWidth: 1440 },
-      source: { type: "live_url", liveUrl: "http://localhost:3000" },
-      reviewSignal: { status: "ready" },
-      reviewUrl: `${baseUrl}/w/workspace-1/p/project-1?branch=branch-1&version=live-1`,
-      brief: "Live context",
-    });
-  }
-  if (request.method === "POST" && url.pathname === "/api/workspaces/workspace-1/projects/project-1/branches/branch-1/versions") {
-    return json({ reviewUrl: `${baseUrl}/w/workspace-1/p/project-1?branch=branch-1&version=live-2`, version: { id: "live-2" } });
-  }
   json({ error: `Unhandled ${request.method} ${url.pathname}` }, 404);
 });
 
@@ -105,13 +84,9 @@ try {
   const waited = await run(["wait", created.reviewUrl, "--timeout", "1"]);
   assert.equal(waited.ready, true);
 
-  const live = await run(["live", "http://localhost:3000"]);
-  assert.equal(live.workspaceId, "workspace-1");
+  await assert.rejects(run(["live", "http://localhost:3000"]), /Unknown command: live/);
 
-  const checkpoint = await run(["checkpoint", live.reviewUrl, "--url", "http://localhost:3000"]);
-  assert.equal(checkpoint.version.id, "live-2");
-
-  console.log("PASS: WDYT CLI doctor, create, context, download, upload, comment, drawing, wait, live review, and checkpoint flows work.");
+  console.log("PASS: WDYT CLI doctor, create, context, download, upload, comment, drawing, and wait flows work; retired live commands stay unavailable.");
 } finally {
   server.close();
   await rm(temporary, { recursive: true, force: true });

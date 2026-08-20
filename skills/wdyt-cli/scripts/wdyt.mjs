@@ -2,7 +2,7 @@
 
 import { readFile, writeFile } from "node:fs/promises";
 
-const VERSION = "0.1.0";
+const VERSION = "0.3.0";
 const DEFAULT_ORIGIN = "https://www.wdyt.page";
 const MAX_HTML_BYTES = 4 * 1024 * 1024;
 
@@ -24,8 +24,6 @@ try {
   else if (command === "comment") await addComment();
   else if (command === "draw") await addDrawing();
   else if (command === "wait") await waitForReview();
-  else if (command === "live") await createLiveReview();
-  else if (command === "checkpoint") await createLiveCheckpoint();
   else throw new UsageError(`Unknown command: ${command}`);
 } catch (error) {
   const usage = error instanceof UsageError;
@@ -185,53 +183,6 @@ async function waitForReview() {
   emit({ ready, reviewUrl: context.urls?.reviewUrl || context.reviewUrl || review.reviewUrl, context }, ready ? "Review is ready" : "Timed out waiting for review");
 }
 
-async function createLiveReview() {
-  const targetUrl = requiredPositional(0, "live requires a target URL");
-  assertHttpUrl(targetUrl, "target URL");
-  const data = await requestJson(`${origin}/api/workspaces`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      workspaceName: String(args.workspace || "Live app review"),
-      projectName: String(args.project || "Live application"),
-      sourceType: "live_url",
-      liveUrl: targetUrl,
-      authorName: String(args.author || "Agent"),
-      artboardWidth: numberArg("width", 1440),
-    }),
-  });
-  const result = {
-    reviewUrl: data.reviewUrl,
-    workspaceId: data.workspace?.id,
-    projectId: data.project?.id,
-    branchId: data.branch?.id,
-    versionId: data.version?.id,
-    liveUrl: data.version?.liveUrl || targetUrl,
-  };
-  emit(result, `Created ${result.reviewUrl}`);
-}
-
-async function createLiveCheckpoint() {
-  const review = resolveReview(requiredPositional(0, "checkpoint requires a live review URL"));
-  if (review.type !== "workspace") throw new UsageError("checkpoint requires a /w/... live review URL");
-  const targetUrl = String(args.url || "");
-  if (!targetUrl) throw new UsageError("checkpoint requires --url TARGET_URL");
-  assertHttpUrl(targetUrl, "target URL");
-  const context = await fetchContext(review);
-  const data = await requestJson(`${review.baseUrl}/api/workspaces/${review.workspaceId}/projects/${review.projectId}/branches/${review.branchId}/versions`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      sourceType: "live_url",
-      liveUrl: targetUrl,
-      authorName: String(args.author || "Agent"),
-      artboardWidth: numberArg("width", context.version?.artboardWidth || 1440),
-      label: args.label ? String(args.label) : null,
-    }),
-  });
-  emit(data, `Checkpoint ready at ${data.reviewUrl || review.reviewUrl}`);
-}
-
 async function fetchContext(review) {
   if (review.type === "hosted") {
     const version = review.version ? `?version=${encodeURIComponent(review.version)}` : "";
@@ -355,11 +306,6 @@ function boundedNumber(value, fallback, minimum, maximum) {
   return Math.max(minimum, Math.min(maximum, number));
 }
 
-function assertHttpUrl(value, label) {
-  const url = new URL(value);
-  if (!["http:", "https:"].includes(url.protocol)) throw new UsageError(`${label} must use http or https`);
-}
-
 function normalizeOrigin(value) {
   const url = new URL(value);
   if (!["http:", "https:"].includes(url.protocol)) throw new UsageError("--origin must use http or https");
@@ -387,9 +333,6 @@ Usage:
   wdyt comment <review-url> --body TEXT [--x N --y N --selector CSS] [--reply-to ID] [--author NAME] [--json]
   wdyt draw <review-url> --points "x,y x,y ..." [--color HEX] [--width N] [--author NAME] [--json]
   wdyt wait <review-url> [--timeout SECONDS] [--interval MILLISECONDS] [--json]
-  wdyt live <target-url> [--workspace NAME] [--project NAME] [--author NAME] [--width N] [--json]
-  wdyt checkpoint <review-url> --url TARGET_URL [--label TEXT] [--author NAME] [--width N] [--json]
-
 Environment:
   WDYT_URL defaults to ${DEFAULT_ORIGIN}
 `;
