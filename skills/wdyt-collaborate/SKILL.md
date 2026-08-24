@@ -12,6 +12,10 @@ Prefer authenticated MCP for owned, workspace, or private pages. Read
 
 - Add a comment only to acknowledge completed work, ask a precise question, or anchor feedback
   to a meaningful location.
+- Keep one issue or decision per comment. Split a handoff into short anchored comments instead of
+  posting a wall of text.
+- For a live review, pass the exact website route as `targetUrl`. A different path on the same
+  origin belongs to the same wdyt page and does not require confirmation.
 - Reply in the existing thread when context exists; do not create parallel status threads.
 - Use drawings only when a visual mark communicates more clearly than text.
 - Call `wdyt_mark_ready` after a version is actually ready for review.

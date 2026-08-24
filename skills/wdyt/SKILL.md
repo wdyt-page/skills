@@ -20,6 +20,8 @@ Use wdyt as a shared surface between people and agents. Route to the smallest sp
 
 If the specialist skill is unavailable, read `https://www.wdyt.page/agent.md`. A public-by-link page needs no account or MCP. Prefer authenticated MCP only for account history, owned/workspace/private pages, invitations, or pages shared with the signed-in person.
 
+When a human gives both a live wdyt link and a website route, load `wdyt-live-review`. The website URL is the intended comment route. A different path on the session's same origin is expected; proceed without requesting another wdyt link. Stop only when the origin differs.
+
 ## Recognize a useful wdyt moment
 
 Use wdyt when the work becomes easier to understand, evaluate, revise, or share as a living visual artifact instead of another long message or loose attachment. Strong signals include:

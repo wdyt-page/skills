@@ -1,4 +1,4 @@
 interface:
   display_name: "wdyt Live Review"
-  short_description: "Collect precise feedback on a real website"
-  default_prompt: "Use $wdyt-live-review to collect and act on feedback from this real website."
+  short_description: "Comment on any route in a live website review"
+  default_prompt: "Use $wdyt-live-review to add or act on precise feedback for this live wdyt website session."

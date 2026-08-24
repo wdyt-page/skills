@@ -72,5 +72,8 @@ assert.doesNotMatch(collaborationText, /permits iframe rendering|wdyt\.mjs live|
 const liveReviewText = await readFile(path.join(skillRoot, "wdyt-live-review", "SKILL.md"), "utf8");
 assert.match(liveReviewText, /Chrome extension/);
 assert.match(liveReviewText, /actual codebase/);
+assert.match(liveReviewText, /proceed without asking for another wdyt link or confirmation/);
+assert.match(liveReviewText, /targetUrl/);
+assert.match(liveReviewText, /one issue or decision in each comment/);
 
 console.log(`PASS: ${directories.length} wdyt skills, plugin metadata, CLI syntax, references, and starter assets are valid.`);
