@@ -74,9 +74,9 @@ Inputs: `pageKey`, `versionId`, `changes`. Traits: mutating.
 
 ### `wdyt_add_comment`
 
-Add a precise comment to a page version.
+Add one concise comment. For a live wdyt page, target any route on the same site with targetUrl; a different path does not require another wdyt page. Use anchorText or anchorSelector when possible.
 
-Inputs: `pageKey`, `versionId`, `body`, `x`, `y`. Traits: mutating.
+Inputs: `pageKey`, `versionId`, `body`, `x`, `y`, `targetUrl`, `anchorText`, `anchorSelector`, `anchorPrefix`, `anchorSuffix`, `nearbyText`. Traits: mutating.
 
 ### `wdyt_reply_to_comment`
 
